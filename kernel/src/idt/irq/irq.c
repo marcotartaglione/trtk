@@ -52,7 +52,7 @@ void irq_handler(struct regs *r) {
     if (irq_number < 16) {
         switch (irq_number) {
             case 0:
-                tick_count++;
+                time_handler();
                 break;
             case 1:
                 printf("IRQ1: Keyboard interrupt\n");

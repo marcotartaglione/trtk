@@ -7,13 +7,14 @@
 
 #include <stdint.h>
 
-#define PIT_BASE_FREQUENCY  1193182
-#define TIMER_FREQUENCY     0xFFFF
-#define PIT_DIVISOR         (PIT_BASE_FREQUENCY / TIMER_FREQUENCY)
-#define US_PER_TICK         1000000 / PIT_DIVISOR
-extern uint32_t tick_count;
+#define PIT_CHANNEL0    0x40
+#define PIT_COMMAND     0x43
+#define PIT_FREQUENCY   1193182 // Frequency of the PIT in Hz
 
-uint32_t uptime_us();
-uint32_t uptime_ms();
+#define PIT_HZ          1000 // Desired frequency in Hz (1 kHz)
+
+void pit_set_frequency(uint16_t frequency);
+uint32_t time_get_ms();
+void time_handler();
 
 #endif //TRTK_TIME_H

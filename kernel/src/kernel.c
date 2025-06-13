@@ -18,11 +18,12 @@ void kernel_main() {
     printf("ISR loadad successfully!\n");
     irq_install();
     printf("IRQ loadad successfully!\n");
+    pit_set_frequency(PIT_HZ);
 
     asm volatile("sti");
 
     while (1) {
-        printf("Time: %lu s\r", uptime_ms() / 1000);
+        printf("Time: %lu ms\r", time_get_ms());
         move_cursor();
     }
 }
