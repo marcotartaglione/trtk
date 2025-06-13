@@ -1,9 +1,22 @@
 # TRT Kernel
 
+A simple 32-bit hobby OS kernel designed to run on QEMU
+
 ## Build & run
 
-To run the kernel with QEMU: `make qemu` (`qemu-syste-x86_64` is used)
+| Dependecy | Purpouse |
+|:----:|---|
+| `make` | Build system |
+| `gcc` | Compiler |
+| `nasm` | Assembler |
+| `ld` | Linker |
+| `qemu-system-x86_64` | Emulated x84 env |
 
-To debug with gdb (symbols are included in `kernel.bin`): `make qemu-gdb` 
+## Build commands
 
-To clean previous builds: `make clean`
+| Dependecy | Purpouse |
+|:----:|---|
+| `make` | Build `kernel.bin` |
+| `make clean` | Clean previous builds |
+| `make qemu` | Run QEMU |
+| `make qemu-gdb` | Run QEMU waiting for GDB |
